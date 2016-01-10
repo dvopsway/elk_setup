@@ -27,11 +27,11 @@ ip=`facter ipaddress_eth0`
 }
 
 # elasticsearch setup
-echo "setup elasticsearch:\n"
+printf "setup elasticsearch:\n"
 {
   sudo rpm --import http://packages.elasticsearch.org/GPG-KEY-elasticsearch >> $INSTALL_LOG
   printf "[elasticsearch-1.1]\nname=Elasticsearch repository for 1.1.x packages\nbaseurl=http://packages.elasticsearch.org/elasticsearch/1.1/centos\ngpgcheck=1\ngpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch\nenabled=1\n" >> $ELASTICSEARCH_REPO
-  echo "installing elastic\nplease wait..."
+  printf "installing elastic\nplease wait..."
   yum -y install elasticsearch-1.1.1 >> $INSTALL_LOG
 
   echo "configuring elastic"
